@@ -1,11 +1,36 @@
 {
-  "name": "l21meteor",
+  "name": "meteorreact",
   "private": true,
   "scripts": {
     "start": "meteor run"
   },
   "dependencies": {
     "babel-runtime": "^6.20.0",
-    "meteor-node-stubs": "~0.2.4"
-  }
+    "meteor-node-stubs": "~0.2.4",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-mounter": "^1.2.0"
+  },
+  "description": "l21meteor",
+  "version": "1.0.0",
+  "main": "index.html",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/nmsabc/l21MeteorReact.git"
+  },
+  "keywords": [
+    "meteor",
+    "react",
+    "l21",
+    "learning",
+    "levelUp",
+    "tutorials"
+  ],
+  "author": "SI",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nmsabc/l21MeteorReact/issues"
+  },
+  "homepage": "https://github.com/nmsabc/l21MeteorReact#readme"
 }
