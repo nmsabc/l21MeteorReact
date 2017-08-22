@@ -14,6 +14,8 @@ clone this and use it to make new projects
 - `git clone git@github.com:nmsabc/l21meteor.git l21MeteorReact/` //get the initial repository
 - `cd l21MeteorReact/`
 - `npm init`    // init the npm and creake the package.json
+### remove these two packages meteor default
+- `meteor remove blaze-html-templates tracker`
 - `npm install --save react` // install react and save it to the package.json
 - rename client main.html to index.html
 
@@ -29,10 +31,50 @@ clone this and use it to make new projects
   - mount-ul face o actiune: monteaza in MainLayout continutul content: `<App />`
 
 ## Mongo db
-1. define a re var : `var Resolutions = new Mongo.Collection("resolution"); `
+1. define a var :
+```JAVASCRIPT
+var Resolutions = new Mongo.Collection("resolution");
+```
   - it comes with `Collections.allow` functions: `insert, update and remove`
   - we **must** add the same on `main.js` server side - else we have an error message: `insert failed: Method '/resolutions/insert' not found`
   - also **ensure** you add `.bind(this)` in the input form `<form className = 'new-resolition' onSubmit={this.addResolution.bind(this)}>`
     - this will permit you to export the default class App that extends the React.Component
 
 ## TrackerReact - we will add a tracker react for making react components reactive :)
+ - all simple here, add it with the manual command `meteor add ultimatejs:tracker-react ` to get version 1.0.5 installed. This is No-Config reactive React Components with Meteor. Apply as composition, mixin or decorator.
+
+## Components
+
+1. define new files called `ResolutionsForm` and `ResolutionSingle` which will now keep and export the classes with the same names.
+2. we do:
+```JAVASCRIPT
+import React, {Component} from 'react';
+```
+and this will give us the possibility to use Component when defining the new class as extending just `Component` and not the entire `React.Component`. In other words we import the `Component` as a separate module from `react` :)
+3. the code to start always is this:
+``` JAVASCRIPT
+export default class ResolutionsForm extends Component{
+  render(){}
+    return(
+      // here we return what needs to be rendered
+    )// return
+  }//render
+}//class
+  ```
+  Here we will define `render` and some functions belonging to the class.  
+4. then we import the two classes in the main app (in our case App.js)
+```JAVASCRIPT
+import ResolutionsForm from '../imports/ui/components/ResolutionsForm';
+import ResolutionSingle from '../imports/ui/components/ResolutionSingle';
+```
+
+5. finally we will render the content using the new classes we defined - like this:
+```JAVASCRIPT
+<ResolutionsForm />
+<ResolutionSingle />
+
+```
+
+** all went bad with empty objects until I removed blaze-html-templates & tracker from meteor `meteor remove blaze-html-templates tracker` **
+
+** still the app react heratically **
